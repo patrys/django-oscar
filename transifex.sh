@@ -5,9 +5,10 @@
 
 # only run once, and only on master
 echo $TRAVIS_JOB_NUMBER | grep "\.1$"
-if [ $? -eq 0 ] && [ $TRAVIS_BRANCH == master ]
+if [ $? -eq 0 ]
   then
     make messages
+    pip install transifex-client
     # write .transifexrc file
     echo "[https://www.transifex.com]
 hostname = https://www.transifex.com
